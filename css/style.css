@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#desktop {
+    height: 100%;
+    background-color: #e0e0e0; /* Couleur de fond du bureau */
+}
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+#start-menu-button {
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+#taskbar-icons {
+    flex-grow: 1;
+}
+
+#clock {
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.popup {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    padding: 20px;
+    width: 250px;
+    display: none;
+    z-index: 100;
+}
+
+#live-clock {
+    font-size: 24px;
+    text-align: center;
+}
+
+#date {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.calendar-header button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 5px;
+    background: gray;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calendar-day.selected {
+    background: blue;
+    color: white;
+}
+
+.calendar-day.today {
+    border: 2px solid yellow;
+}
+
+#workspace {
+    padding-bottom: 50px; /* Espace pour la taskbar */
+}
