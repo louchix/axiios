@@ -1,0 +1,46 @@
+/* Styles spécifiques à la fonctionnalité du calendrier */
+.popup {
+    position: fixed;
+    bottom: 60px;
+    right: 10px;
+    background-color: white;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 20px;
+    width: 300px;
+    display: none;
+    z-index: 100;
+}
+
+#live-clock, #date {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 10px;
+    background: #ecf0f1;
+    color: #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-day.selected, .calendar-day.today {
+    background: #3498db;
+    color: white;
+}
