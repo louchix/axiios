@@ -28,10 +28,7 @@ function selectDay(event) {
 
 function updateCalendar(year, month) {
     const now = new Date();
-    const currentDay = now.getDate();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-
+    const today = formatDate(now);
     const monthYear = new Date(year, month).toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
     document.getElementById('month-year').textContent = monthYear;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -45,7 +42,8 @@ function updateCalendar(year, month) {
         dayElement.setAttribute('data-date', date);
         dayElement.textContent = day;
 
-        if (day === currentDay && year === currentYear && month === currentMonth) {
+        // Mettre en évidence le jour actuel avec la classe 'today'
+        if (date === today) {
             dayElement.classList.add('today');
         }
 
@@ -87,11 +85,16 @@ function togglePopup() {
     popup.style.display = isVisible ? 'none' : 'block';
 
     if (!isVisible) {
+        // Réinitialiser à la date actuelle lors de la réouverture de la popup
+        currentYear = new Date().getFullYear();
+        currentMonth = new Date().getMonth();
+        selectedDate = formatDate(new Date());
         updateCalendar(currentYear, currentMonth);
         updateDateDisplay();
     }
 }
 
+document.getElementById('popup-clock-calendar').style.display = 'none';
 document.getElementById('prev-month').addEventListener('click', () => changeMonth(-1));
 document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
 document.getElementById('clock').addEventListener('click', togglePopup);
