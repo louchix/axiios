@@ -1,6 +1,5 @@
-/* Styles spécifiques à la fonctionnalité du calendrier */
 .popup {
-    position: fixed;
+    position: absolute;
     bottom: 60px;
     right: 10px;
     background-color: white;
@@ -9,8 +8,11 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     padding: 20px;
     width: 300px;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 100;
+    transition: all 0.3s ease;
 }
 
 #live-clock, #date {
@@ -22,13 +24,30 @@
 .calendar-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
     margin-bottom: 15px;
+}
+
+.calendar-header button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-header button:hover {
+    background-color: #2980b9;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    width: 100%;
 }
 
 .calendar-day {
@@ -38,9 +57,21 @@
     color: #333;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.calendar-day.selected, .calendar-day.today {
-    background: #3498db;
-    color: white;
+.calendar-day:hover {
+    background: #bdc3c7;
 }
+
+.calendar-day.selected {
+    background: #e74c3c; /* couleur de fond pour le jour sélectionné */
+    color: white; /* couleur du texte pour le jour sélectionné */
+}
+
+.calendar-day.today {
+    background: #3498db; /* couleur de fond pour le jour actuel */
+    color: white; /* couleur du texte pour le jour actuel */
+}
+
+
