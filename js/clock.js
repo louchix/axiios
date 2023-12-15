@@ -42,7 +42,6 @@ function updateCalendar(year, month) {
         dayElement.setAttribute('data-date', date);
         dayElement.textContent = day;
 
-        // Mettre en évidence le jour actuel avec la classe 'today'
         if (date === today) {
             dayElement.classList.add('today');
         }
@@ -85,7 +84,6 @@ function togglePopup() {
     popup.style.display = isVisible ? 'none' : 'block';
 
     if (!isVisible) {
-        // Réinitialiser à la date actuelle lors de la réouverture de la popup
         currentYear = new Date().getFullYear();
         currentMonth = new Date().getMonth();
         selectedDate = formatDate(new Date());
@@ -94,11 +92,34 @@ function togglePopup() {
     }
 }
 
-document.getElementById('popup-clock-calendar').style.display = 'none';
-document.getElementById('prev-month').addEventListener('click', () => changeMonth(-1));
-document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
-document.getElementById('clock').addEventListener('click', togglePopup);
+// Cacher le popup si l'utilisateur clique en dehors de celui-ci
+document.addEventListener('click', function(event) {
+    const popup = document.getElementById('popup-clock-calendar');
+    const clock = document.getElementById('clock');
+
+    if (!popup.contains(event.target) && !clock.contains(event.target)) {
+        popup.style.display = 'none';
+    }
+});
+
+document.getElementById('prev-month').addEventListener('click', (event) => {
+    event.stopPropagation();
+    changeMonth(-1);
+});
+
+document.getElementById('next-month').addEventListener('click', (event) => {
+    event.stopPropagation();
+    changeMonth(1);
+});
+
+document.getElementById('clock').addEventListener('click', (event) => {
+    event.stopPropagation();
+    togglePopup();
+});
 
 updateClock();
 setInterval(updateClock, 1000);
 updateDateDisplay();
+
+// Cacher le popup à l'initialisation de la page
+document.getElementById('popup-clock-calendar').style.display = 'none';
