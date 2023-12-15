@@ -13,8 +13,7 @@ function updateClock() {
     const timeStringLong = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
     document.getElementById('clock').innerText = timeStringShort;
-
-        document.getElementById('live-clock').innerText = timeStringLong;
+    document.getElementById('live-clock').innerText = timeStringLong;
 }
 
 function selectDay(event) {
@@ -28,6 +27,11 @@ function selectDay(event) {
 }
 
 function updateCalendar(year, month) {
+    const now = new Date();
+    const currentDay = now.getDate();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+
     const monthYear = new Date(year, month).toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
     document.getElementById('month-year').textContent = monthYear;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -41,8 +45,11 @@ function updateCalendar(year, month) {
         dayElement.setAttribute('data-date', date);
         dayElement.textContent = day;
 
-        if (date === selectedDate) {
+        if (day === currentDay && year === currentYear && month === currentMonth) {
             dayElement.classList.add('today');
+        }
+
+        if (date === selectedDate) {
             dayElement.classList.add('selected');
         }
 
@@ -63,7 +70,6 @@ function changeMonth(offset) {
     updateCalendar(currentYear, currentMonth);
 }
 
-// Mettre à jour la date dans la division 'date'
 function updateDateDisplay() {
     const now = new Date();
     const dateString = now.toLocaleDateString('fr-FR', {
@@ -82,10 +88,9 @@ function togglePopup() {
 
     if (!isVisible) {
         updateCalendar(currentYear, currentMonth);
-        updateDateDisplay();  // Mettre à jour la date lors de l'ouverture de la popup
+        updateDateDisplay();
     }
 }
-
 
 document.getElementById('prev-month').addEventListener('click', () => changeMonth(-1));
 document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
