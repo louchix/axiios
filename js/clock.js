@@ -28,10 +28,7 @@ function selectDay(event) {
 
 function updateCalendar(year, month) {
     const now = new Date();
-    const currentDay = now.getDate();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-
+    const today = formatDate(now);
     const monthYear = new Date(year, month).toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
     document.getElementById('month-year').textContent = monthYear;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -45,7 +42,7 @@ function updateCalendar(year, month) {
         dayElement.setAttribute('data-date', date);
         dayElement.textContent = day;
 
-        if (day === currentDay && year === currentYear && month === currentMonth) {
+        if (date === today) {
             dayElement.classList.add('today');
         }
 
@@ -87,15 +84,42 @@ function togglePopup() {
     popup.style.display = isVisible ? 'none' : 'block';
 
     if (!isVisible) {
+        currentYear = new Date().getFullYear();
+        currentMonth = new Date().getMonth();
+        selectedDate = formatDate(new Date());
         updateCalendar(currentYear, currentMonth);
         updateDateDisplay();
     }
 }
 
-document.getElementById('prev-month').addEventListener('click', () => changeMonth(-1));
-document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
-document.getElementById('clock').addEventListener('click', togglePopup);
+// Cacher le popup si l'utilisateur clique en dehors de celui-ci
+document.addEventListener('click', function(event) {
+    const popup = document.getElementById('popup-clock-calendar');
+    const clock = document.getElementById('clock');
+
+    if (!popup.contains(event.target) && !clock.contains(event.target)) {
+        popup.style.display = 'none';
+    }
+});
+
+document.getElementById('prev-month').addEventListener('click', (event) => {
+    event.stopPropagation();
+    changeMonth(-1);
+});
+
+document.getElementById('next-month').addEventListener('click', (event) => {
+    event.stopPropagation();
+    changeMonth(1);
+});
+
+document.getElementById('clock').addEventListener('click', (event) => {
+    event.stopPropagation();
+    togglePopup();
+});
 
 updateClock();
 setInterval(updateClock, 1000);
 updateDateDisplay();
+
+// Cacher le popup à l'initialisation de la page
+document.getElementById('popup-clock-calendar').style.display = 'none';
