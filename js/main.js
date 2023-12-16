@@ -1,20 +1,43 @@
-// Scripts généraux pour tout le site
+// Fonction pour initialiser le menu
+function initializeMenu() {
+    // Sélectionnez le bouton de la taskbar
+    const startMenuButton = document.getElementById('start-menu-button');
+    // Sélectionnez le menu
+    const menu = document.querySelector('.menu');
+    // Sélectionnez le logo du menu
+    const menuLogo = document.getElementById('menu-logo');
 
-// Fonction pour ouvrir/fermer le menu de démarrage
-function toggleStartMenu() {
-    const startMenu = document.getElementById('start-menu');
-    startMenu.classList.toggle('open');
+    // Fermez le menu par défaut en ajoutant la classe .menu-hidden
+    menu.classList.add('menu-hidden');
+
+    // Ajoutez un écouteur d'événements pour le clic sur le bouton de la taskbar
+    startMenuButton.addEventListener('click', () => {
+        // Basculez la classe .menu-hidden pour afficher ou masquer le menu
+        menu.classList.toggle('menu-hidden');
+    });
+
+    // Ajoutez un écouteur d'événements pour le clic sur le logo du menu
+    menuLogo.addEventListener('click', () => {
+        // Ouvrez le menu en retirant la classe .menu-hidden
+        menu.classList.remove('menu-hidden');
+    });
+
+    // Ajoutez un écouteur d'événements pour le clic en dehors du menu et du logo
+    document.addEventListener('click', (e) => {
+        // Vérifiez si l'élément cliqué n'est pas le menu ni le logo
+        if (!menu.contains(e.target) && e.target !== menuLogo && e.target !== startMenuButton) {
+            // Si c'est le cas, masquez le menu en ajoutant la classe .menu-hidden
+            menu.classList.add('menu-hidden');
+        }
+    });
 }
 
-// Ajoutez des écouteurs d'événements pour les boutons de la taskbar
-document.getElementById('start-menu-button').addEventListener('click', toggleStartMenu);
+// Ajoutez un écouteur d'événements pour le chargement complet du DOM
+document.addEventListener('DOMContentLoaded', () => {
+    // Appelez la fonction pour initialiser le menu
+    initializeMenu();
 
-// Cacher le menu de démarrage si l'utilisateur clique en dehors
-document.addEventListener('click', function(event) {
-    const startMenu = document.getElementById('start-menu');
-    if (!startMenu.contains(event.target) && !document.getElementById('start-menu-button').contains(event.target)) {
-        startMenu.classList.remove('open');
-    }
+    // Vous pouvez également ajouter d'autres initialisations ici si nécessaire
 });
 
 window.addEventListener('load', function() {
