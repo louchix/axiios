@@ -8,26 +8,35 @@ function initializeMenu() {
     const menuLogo = document.getElementById('menu-logo');
 
     // Fermez le menu par défaut en ajoutant la classe .menu-hidden
-    menu.classList.add('menu-hidden');
+    menu.style.opacity = '0'; // Initialise l'opacité du menu à 0
+    menu.style.visibility = 'hidden'; // Cache le menu
 
     // Ajoutez un écouteur d'événements pour le clic sur le bouton de la taskbar
     startMenuButton.addEventListener('click', () => {
-        // Basculez la classe .menu-hidden pour afficher ou masquer le menu
-        menu.classList.toggle('menu-hidden');
+        // Faites apparaître le menu en ajustant l'opacité et la visibilité
+        if (menu.style.opacity === '0') {
+            menu.style.opacity = '1';
+            menu.style.visibility = 'visible';
+        } else {
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+        }
     });
 
     // Ajoutez un écouteur d'événements pour le clic sur le logo du menu
     menuLogo.addEventListener('click', () => {
-        // Ouvrez le menu en retirant la classe .menu-hidden
-        menu.classList.remove('menu-hidden');
+        // Ouvrez le menu en ajustant l'opacité et la visibilité
+        menu.style.opacity = '1';
+        menu.style.visibility = 'visible';
     });
 
     // Ajoutez un écouteur d'événements pour le clic en dehors du menu et du logo
     document.addEventListener('click', (e) => {
         // Vérifiez si l'élément cliqué n'est pas le menu ni le logo
         if (!menu.contains(e.target) && e.target !== menuLogo && e.target !== startMenuButton) {
-            // Si c'est le cas, masquez le menu en ajoutant la classe .menu-hidden
-            menu.classList.add('menu-hidden');
+            // Masquez le menu en ajustant l'opacité et la visibilité
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
         }
     });
 }
@@ -36,7 +45,7 @@ function initializeMenu() {
 document.addEventListener('DOMContentLoaded', () => {
     // Appelez la fonction pour initialiser le menu
     initializeMenu();
-
+    
     // Vous pouvez également ajouter d'autres initialisations ici si nécessaire
 });
 
