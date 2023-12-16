@@ -1,6 +1,5 @@
 /* Styles pour le menu de 640x726px positionné au-dessus de la taskbar */
 
-
 .menu {
     position: fixed;
     bottom: 0;
@@ -89,13 +88,6 @@
     width: 62px; /* Largeur souhaitée */
     height: 62px; /* Hauteur souhaitée */
     position: absolute;
-    left: 5px; /* Positionne le logo à 5px du bord gauche du menu */
+    left: 5px; /* Positionne le logo à 10px du bord gauche du menu */
     top: -5px; /* Ajustez la valeur top selon vos besoins pour positionner le logo plus haut */
-}
-
-.menu-hidden {
-    height: 0; /* Réglez la hauteur à 0 pour masquer le menu */
-    opacity: 0; /* Opacité à 0 pour masquer le menu */
-    visibility: hidden; /* Visibilité à cachée pour masquer le menu */
-    transition: height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Transition lors de la fermeture */
 }

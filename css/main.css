@@ -1,5 +1,3 @@
-/* Styles généraux pour tout le site */
-
 body, html {
     margin: 0;
     padding: 0;
@@ -71,6 +69,23 @@ body, html {
     .calendar-grid {
         grid-template-columns: repeat(7, 1fr); /* Assure que le calendrier reste sur 7 colonnes */
     }
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+    opacity: 1;
+    visibility: visible;
 }
 
 #loading-screen {
