@@ -29,5 +29,5 @@ window.addEventListener('load', function() {
         setTimeout(() => {
             loadingScreen.parentNode.removeChild(loadingScreen);
         }, 1000); // Durée de l'effet de fondu
-    }, 3000); // Le temps total avant de cacher l'écran de chargement
+    }, 2000); // Le temps total avant de cacher l'écran de chargement
 });
