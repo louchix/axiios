@@ -2,30 +2,24 @@
 
 .menu {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0; /* Hauteur initiale à 0 pour le mode fondu */
+    bottom: 50px; /* Évite que le menu ne recouvre la taskbar */
+    left: -640px; /* Le menu est initialement caché à gauche */
+    width: 640px; /* Largeur du menu */
+    height: 726px; /* Hauteur du menu */
     background-color: #f5f5f5; /* Couleur de fond */
     color: #000; /* Couleur du texte */
-    transition: height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Transition de la hauteur, de l'opacité et de la visibilité */
+    transition: left 0.3s ease; /* Animation de déplacement */
     overflow-y: auto; /* Défilement vertical si le contenu dépasse la hauteur */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centre le contenu horizontalement */
     justify-content: flex-start; /* Aligne le contenu en haut */
-    opacity: 0; /* Opacité initiale à 0 pour le mode fondu */
-    visibility: hidden; /* Visibilité initiale à cachée pour le mode fondu */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ajout d'une ombre */
 }
 
-
 .menu-open {
-    height: 726px; /* Hauteur maximale pour le mode fondu */
-    opacity: 1; /* Opacité à 1 lorsqu'ouvert */
-    visibility: visible; /* Visibilité à visible lorsqu'ouvert */
-    transition: height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Transition lors de l'ouverture */
+    left: 0; /* Affiche le menu en le déplaçant vers la gauche */
 }
 
 .menu-header {
@@ -88,6 +82,6 @@
     width: 62px; /* Largeur souhaitée */
     height: 62px; /* Hauteur souhaitée */
     position: absolute;
-    left: 5px; /* Positionne le logo à 10px du bord gauche du menu */
+    left: 10px; /* Positionne le logo à 10px du bord gauche du menu */
     top: -5px; /* Ajustez la valeur top selon vos besoins pour positionner le logo plus haut */
 }

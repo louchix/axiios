@@ -40,4 +40,4 @@ document.addEventListener('click', (event) => {
         // Retirez la classe 'menu-open' pour fermer le menu
         menu.classList.remove('menu-open');
     }
-}
+});
