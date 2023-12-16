@@ -29,14 +29,44 @@ body, html {
 #taskbar #clock {
     margin-right: 20px;
     font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+#taskbar #clock:hover {
+    transform: scale(1.1);
 }
 
 #start-menu-button, #taskbar-icons {
     margin-left: 20px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 #start-menu-button:hover, #taskbar-icons:hover {
     text-decoration: underline;
+    color: #7f8c8d;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    #taskbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #taskbar > div {
+        margin: 5px 0; /* Ajoute un peu d'espace autour des éléments de la taskbar */
+    }
+
+    .popup {
+        width: 90%; /* Ajuste la largeur du popup sur les petits écrans */
+        bottom: auto;
+        top: 10px; /* Place le popup en haut de la page */
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr); /* Assure que le calendrier reste sur 7 colonnes */
+    }
 }

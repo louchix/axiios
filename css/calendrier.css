@@ -43,6 +43,10 @@
     background-color: #2980b9;
 }
 
+.calendar-header button:active {
+    background-color: #1a6a8b;
+}
+
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -65,13 +69,11 @@
 }
 
 .calendar-day.selected {
-    background: #e74c3c; /* couleur de fond pour le jour sélectionné */
-    color: white; /* couleur du texte pour le jour sélectionné */
+    background: #e74c3c;
+    color: white;
 }
 
 .calendar-day.today {
-    background: #3498db; /* couleur de fond pour le jour actuel */
-    color: white; /* couleur du texte pour le jour actuel */
+    background: #3498db;
+    color: white;
 }
-
-

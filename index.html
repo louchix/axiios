@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description de votre projet web.">
+    <meta name="keywords" content="Mots-clés, pertinents, pour, votre, projet">
     <title>Mon Projet</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/calendrier.css">
 </head>
 <body>
-    <div id="desktop">
-        <!-- Taskbar -->
-        <div id="taskbar">
-            <div id="start-menu-button">Menu</div>
-            <div id="taskbar-icons">
-                <!-- Icônes de la taskbar (à ajouter) -->
+    <header id="taskbar">
+        <div id="start-menu-button">Menu</div>
+        <div id="taskbar-icons">
+            <!-- Icônes de la taskbar (à ajouter) -->
+        </div>
+        <div id="clock">15:50</div>
+    </header>
+
+    <main id="workspace">
+        <!-- Contenu du site -->
+    </main>
+
+    <aside id="popup-clock-calendar" class="popup">
+        <div id="live-clock">15:50:46</div>
+        <div id="date">Date</div>
+        <div id="popup-calendar">
+            <div class="calendar-header">
+                <button id="prev-month">&lt; Mois</button>
+                <div id="month-year">Mois Année</div>
+                <button id="next-month">Mois &gt;</button>
             </div>
-            <div id="clock">15:50</div>
-        </div>
-
-        <!-- Zone de travail -->
-        <div id="workspace">
-            <!-- Contenu du site -->
-        </div>
-
-        <!-- Popup pour l'horloge et le calendrier -->
-        <div id="popup-clock-calendar" class="popup">
-            <div id="live-clock">15:50:46</div>
-            <div id="date">Date</div>
-            <div id="popup-calendar">
-                <div class="calendar-header">
-                    <button id="prev-month">&lt; Mois</button>
-                    <div id="month-year">Mois Année</div>
-                    <button id="next-month">Mois &gt;</button>
-                </div>
-                <div class="calendar-grid">
-                    <!-- Les jours seront générés ici -->
-                </div>
+            <div class="calendar-grid">
+                <!-- Les jours seront générés ici -->
             </div>
         </div>
-    </div>
+    </aside>
+
     <script src="js/main.js"></script>
     <script src="js/calendrier.js"></script>
 </body>
