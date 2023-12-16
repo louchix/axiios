@@ -1,4 +1,5 @@
-/* Styles pour un menu de 640x726px positionné au-dessus de la taskbar */
+/* Styles pour le menu de 640x726px positionné au-dessus de la taskbar */
+
 .menu {
     position: fixed;
     bottom: 50px; /* Évite que le menu ne recouvre la taskbar */
@@ -74,4 +75,13 @@
 
 .power-button:hover {
     background-color: #b71c1c;
+}
+
+/* Styles pour le logo du menu */
+.menu-logo {
+    width: 62px; /* Largeur souhaitée */
+    height: 62px; /* Hauteur souhaitée */
+    position: absolute;
+    left: 5px; /* Positionne le logo à 10px du bord gauche du menu */
+    top: -5px; /* Ajustez la valeur top selon vos besoins pour positionner le logo plus haut */
 }
