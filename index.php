@@ -14,9 +14,9 @@
         <div id="loading-bar"></div>
     </div>
     <header id="taskbar">
-        <div id="start-menu-button">
-            <img class="menu-logo" src="picture/logo.png" alt="Menu" />
-        </div>
+    <div id="start-menu-button">
+    <img class="menu-logo" id="menu-logo" src="picture/logo.png" alt="Menu" />
+</div>
         <div id="taskbar-icons">
             <!-- Icônes de la taskbar (à ajouter) -->
         </div>
@@ -37,26 +37,15 @@
                 <button id="next-month">Mois &gt;</button>
             </div>
             <div class="calendar-grid">
-                <!-- Les jours seront générés ici -->
+                <!-- Contenu du calendrier -->
+                <!-- Vous pouvez ajouter les jours, les événements ou d'autres informations ici -->
             </div>
         </div>
     </aside>
 
-    <!-- Le menu -->
+    <!-- Insérez ici le code HTML pour le menu Windows 11 -->
     <div class="menu">
         <!-- Contenu du menu -->
-        <div class="menu-header">
-            <img src="picture/logo.png" alt="Logo" />
-            <div class="user-info">Nom d'utilisateur</div>
-        </div>
-        <ul class="menu-items">
-            <li class="menu-item">Item 1</li>
-            <li class="menu-item">Item 2</li>
-            <li class="menu-item">Item 3</li>
-        </ul>
-        <div class="menu-footer">
-            <button class="power-button">Arrêter</button>
-        </div>
     </div>
 
     <script src="js/main.js"></script>
