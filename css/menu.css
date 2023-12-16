@@ -1,0 +1,77 @@
+/* Styles pour un menu de 640x726px positionné au-dessus de la taskbar */
+.menu {
+    position: fixed;
+    bottom: 50px; /* Évite que le menu ne recouvre la taskbar */
+    left: -640px; /* Le menu est initialement caché à gauche */
+    width: 640px; /* Largeur du menu */
+    height: 726px; /* Hauteur du menu */
+    background-color: #f5f5f5; /* Couleur de fond */
+    color: #000; /* Couleur du texte */
+    transition: left 0.3s ease; /* Animation de déplacement */
+    overflow-y: auto; /* Défilement vertical si le contenu dépasse la hauteur */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    justify-content: flex-start; /* Aligne le contenu en haut */
+}
+
+.menu-open {
+    left: 0; /* Affiche le menu en le déplaçant vers la gauche */
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd; /* Ligne de séparation */
+}
+
+.menu-header img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    width: 100%; /* Le menu prend toute la largeur du conteneur */
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+.menu-item:hover {
+    background-color: #0078d4; /* Couleur de survol */
+    color: white; /* Couleur du texte en survol */
+}
+
+.menu-footer {
+    margin-top: auto; /* Place le footer en bas du menu */
+    padding: 20px;
+    text-align: center;
+}
+
+.power-button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.power-button:hover {
+    background-color: #b71c1c;
+}

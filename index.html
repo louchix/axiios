@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AxiiOS est une interface web interactive qui offre une expérience utilisateur fluide et dynamique, caractérisée par une esthétique moderne.">
-    <meta name="keywords" content="Axiios, OS, WebOs, Axiiom">
     <title>Axiios</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/calendrier.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
     <div id="loading-screen">
@@ -41,7 +40,25 @@
         </div>
     </aside>
 
+    <!-- Le menu -->
+    <div class="menu">
+        <!-- Contenu du menu -->
+        <div class="menu-header">
+            <img src="picture/logo.png" alt="Logo" />
+            <div class="user-info">Nom d'utilisateur</div>
+        </div>
+        <ul class="menu-items">
+            <li class="menu-item">Item 1</li>
+            <li class="menu-item">Item 2</li>
+            <li class="menu-item">Item 3</li>
+        </ul>
+        <div class="menu-footer">
+            <button class="power-button">Arrêter</button>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
     <script src="js/calendrier.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
