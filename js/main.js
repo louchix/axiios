@@ -16,3 +16,18 @@ document.addEventListener('click', function(event) {
         startMenu.classList.remove('open');
     }
 });
+
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+
+    // Attendre la fin de l'animation de la barre de chargement
+    setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.visibility = 'hidden';
+
+        // Optionnel : Retirer l'écran de chargement du DOM après disparition
+        setTimeout(() => {
+            loadingScreen.parentNode.removeChild(loadingScreen);
+        }, 1000); // Durée de l'effet de fondu
+    }, 3000); // Le temps total avant de cacher l'écran de chargement
+});
